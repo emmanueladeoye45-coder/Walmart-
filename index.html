@@ -19,6 +19,7 @@
             max-width: 400px;
             margin: auto;
         }
+
         .logo {
             text-align: center;
             font-size: 26px;
@@ -166,6 +167,59 @@
         .faq-a.open {
             display: block;
         }
+
+        /* CALCULATOR */
+        .calculator {
+            background: #F8F9FA;
+            border-radius: 12px;
+            padding: 18px 16px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .calculator h3 {
+            font-size: 15.5px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+        .calc-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #4285F4;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        .calc-input::placeholder {
+            color: #9AA0A6;
+        }
+        .calc-btn {
+            width: 100%;
+            background: #FFC220;
+            color: #004C91;
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .calc-btn:hover {
+            background: #E6AE1C;
+        }
+        .calc-result {
+            font-size: 16px;
+            font-weight: 700;
+            color: #202124;
+            margin-top: 15px;
+            display: none;
+        }
+        .calc-result.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -185,8 +239,8 @@
             <div class="guide-item">
                 <div class="check">✓</div>
                 <div>
-                    <b>Complete 4-6 product reviews</b>
-                    <small>More reviews, more rewards</small>
+                    <b>Complete 4 or more offers</b>
+                    <small>More deals, more rewards</small>
                 </div>
             </div>
             <div class="guide-item">
@@ -210,27 +264,35 @@
 
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFAQ(this)">
-                    <span>How long do the product reviews take?</span>
+                    <span>How long do the deals take?</span>
                     <div class="x">×</div>
                 </div>
                 <div class="faq-a">
-                    Most product reviews can be completed in just a few minutes. Larger products may take longer depending on the steps involved.
+                    Most deals can be completed in just a few minutes. Larger offers may take longer depending on the steps involved.
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-q" onclick="toggleFAQ(this)">
-                    <span>What kind of products are reviewed?</span>
+                    <span>What kind of deals are included?</span>
                     <div class="x">×</div>
                 </div>
                 <div class="faq-a">
-                    Walmart home products.
+                    Deals include free trials, app downloads, surveys, and signups from our partner network.
                 </div>
             </div>
 
         </div>
 
-        <a href="https://giftclick.org/aff_c?offer_id=1157&aff_id=170050" class="cta-btn">Continue</a>
+        <!-- CALCULATOR -->
+        <div class="calculator">
+            <h3>Deals to complete (4-40):</h3>
+            <input type="number" id="dealsInput" class="calc-input" placeholder="You must complete 4+ deals to claim it" min="1" max="40">
+            <button class="calc-btn" onclick="calculateReward()">Calculate Reward</button>
+            <div id="calcResult" class="calc-result">Estimated Reward: $75</div>
+        </div>
+
+        <a href="https://linkthem.net/aff_c?offer_id=1405&aff_id=170050" class="cta-btn">Continue</a>
 
     </div>
 
@@ -240,6 +302,48 @@
             element.classList.toggle('active');
             answer.classList.toggle('open');
         }
+
+        // Calculate Reward Logic
+        function calculateReward() {
+            const input = document.getElementById('dealsInput');
+            const resultDiv = document.getElementById('calcResult');
+            const deals = parseInt(input.value, 10);
+
+            // Validate input
+            if (isNaN(deals) || deals < 1) {
+                resultDiv.textContent = "Please enter a valid number of deals.";
+                resultDiv.classList.add('show');
+                return;
+            }
+
+            if (deals < 4) {
+                resultDiv.textContent = "You must complete 4+ deals to claim it.";
+                resultDiv.classList.add('show');
+                return;
+            }
+
+            // Cap the reward at $750 for 40+ deals
+            if (deals >= 40) {
+                resultDiv.textContent = "Estimated Reward: $750";
+                resultDiv.classList.add('show');
+                return;
+            }
+
+            // Linear interpolation between (4, 75) and (40, 750)
+            const baseReward = 75; // Updated from 150 to 75
+            const maxReward = 750;
+            const maxDeals = 40;
+            const minDeals = 4;
+            
+            const reward = baseReward + (deals - minDeals) * ((maxReward - baseReward) / (maxDeals - minDeals));
+            
+            // Round to nearest whole dollar
+            const finalReward = Math.round(reward);
+            
+            resultDiv.textContent = `Estimated Reward: $${finalReward}`;
+            resultDiv.classList.add('show');
+        }
     </script>
+
 </body>
 </html>
