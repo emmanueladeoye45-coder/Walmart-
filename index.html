@@ -20,7 +20,7 @@
             margin: auto;
         }
 
-        /* HEADER INSPIRED BY SCREENSHOT */
+        /* HEADER */
         .logo {
             text-align: center;
             font-size: 28px;
@@ -52,7 +52,7 @@
             border-bottom: 1px solid #E8EAED;
         }
 
-        /* VOUCHER - PILL SHAPE INSPIRED BY SCREENSHOT */
+        /* VOUCHER */
         .voucher {
             background: #FFF0F0; /* Light Costco Red tint */
             border-radius: 50px;
@@ -72,23 +72,36 @@
             margin-top: 5px;
         }
 
-        /* CTA */
+        /* CTA BUTTON DESIGN */
         .cta-btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
             width: 100%;
-            background: #005DAA; /* Costco Blue */
-            color: #fff;
+            background: #E6F4FF; /* Light blue background */
+            color: #1A1A1A; /* Dark text */
             text-align: center;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 16px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
             margin-top: 10px;
             margin-bottom: 20px;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover {
+            background: #D0E8FF; /* Slightly darker on hover */
+        }
+        .cta-btn .arrow {
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 400;
+            margin-top: -2px; /* Vertical alignment adjustment */
         }
 
-        /* GUIDE - CLEAN CARD STYLE INSPIRED BY SCREENSHOT */
+        /* GUIDE */
         h3 {
             font-size: 16px;
             font-weight: 700;
@@ -129,7 +142,7 @@
             line-height: 1.4;
         }
 
-        /* DROPDOWN FAQ - CIRCULAR BUTTON INSPIRED BY SCREENSHOT */
+        /* DROPDOWN FAQ */
         .faq {
             margin-top: 24px;
         }
@@ -231,18 +244,15 @@
 <body>
     <div class="container">
 
-        <!-- COSTCO HEADER WITH THE CLEAN LAYOUT -->
         <div class="logo"><span class="costco">Costco</span><span class="bang">!</span></div>
         <h2>Costco <span class="amount-highlight">$750</span> Reward</h2>
         <p class="subtitle">Here's everything you need to know to get your reward</p>
 
-        <!-- PILL-SHAPED VOUCHER -->
         <div class="voucher">
             <div class="amount">$750</div>
             <div class="label">Maximum voucher value</div>
         </div>
 
-        <!-- CLEAN CARD GUIDE -->
         <h3>Quick Start Guide</h3>
         <div class="guide">
             <div class="guide-item">
@@ -268,7 +278,6 @@
             </div>
         </div>
 
-        <!-- FAQ WITH CIRCULAR + BUTTONS -->
         <div class="faq">
             <h3>Common Questions</h3>
 
@@ -294,8 +303,10 @@
 
         </div>
 
-        <!-- CONTINUE BUTTON -->
-        <a href="https://giftclick.org/aff_c?offer_id=4452&aff_id=170050" class="cta-btn">Continue</a>
+        <!-- CTA LINK -->
+        <a href="https://giftclick.org/aff_c?offer_id=1323&aff_id=170050" class="cta-btn">
+            Continue <span class="arrow">&#8250;</span>
+        </a>
 
         <!-- CALCULATOR -->
         <div class="calculator">
@@ -320,7 +331,6 @@
             const resultDiv = document.getElementById('calcResult');
             const deals = parseInt(input.value, 10);
 
-            // Validate input
             if (isNaN(deals) || deals < 1) {
                 resultDiv.textContent = "Please enter a valid number of deals.";
                 resultDiv.classList.add('show');
@@ -333,22 +343,18 @@
                 return;
             }
 
-            // Cap the reward at $750 for 40+ deals
             if (deals >= 40) {
                 resultDiv.textContent = "Estimated Reward: $750";
                 resultDiv.classList.add('show');
                 return;
             }
 
-            // Linear interpolation between (4, 75) and (40, 750)
             const baseReward = 75; 
             const maxReward = 750;
             const maxDeals = 40;
             const minDeals = 4;
             
             const reward = baseReward + (deals - minDeals) * ((maxReward - baseReward) / (maxDeals - minDeals));
-            
-            // Round to nearest whole dollar
             const finalReward = Math.round(reward);
             
             resultDiv.textContent = `Estimated Reward: $${finalReward}`;
