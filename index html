@@ -72,7 +72,7 @@
             margin-top: 5px;
         }
 
-        /* NEW CTA BUTTON DESIGN */
+        /* CTA BUTTON DESIGN */
         .cta-btn {
             display: flex;
             justify-content: center;
@@ -303,8 +303,8 @@
 
         </div>
 
-        <!-- NEW CTA BUTTON -->
-        <a href="https://giftclick.org/aff_c?offer_id=4452&aff_id=170050" class="cta-btn">
+        <!-- UPDATED CTA LINK -->
+        <a href="https://giftclick.org/aff_c?offer_id=1323&aff_id=170050" class="cta-btn">
             Continue <span class="arrow">&#8250;</span>
         </a>
 
