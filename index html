@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Costco $750 Reward</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            background: #FFFFFF;
+            color: #202124;
+            padding: 16px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        /* HEADER */
+        .logo {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 6px 0 4px;
+        }
+        .logo .costco {
+            color: #005DAA; /* Costco Blue */
+        }
+        .logo .bang {
+            color: #E31837; /* Costco Red */
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 8px;
+        }
+        h2 .amount-highlight {
+            color: #E31837; /* Costco Red */
+        }
+        .subtitle {
+            text-align: center;
+            color: #5F6368;
+            font-size: 13px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #E8EAED;
+        }
+
+        /* VOUCHER */
+        .voucher {
+            background: #FFF0F0; /* Light Costco Red tint */
+            border-radius: 50px;
+            padding: 24px 16px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .voucher .amount {
+            font-size: 38px;
+            font-weight: 800;
+            color: #E31837; /* Costco Red */
+            letter-spacing: -1px;
+        }
+        .voucher .label {
+            font-size: 13px;
+            color: #5F6368;
+            margin-top: 5px;
+        }
+
+        /* NEW CTA BUTTON DESIGN */
+        .cta-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            background: #E6F4FF; /* Light blue background */
+            color: #1A1A1A; /* Dark text */
+            text-align: center;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover {
+            background: #D0E8FF; /* Slightly darker on hover */
+        }
+        .cta-btn .arrow {
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 400;
+            margin-top: -2px; /* Vertical alignment adjustment */
+        }
+
+        /* GUIDE */
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 12px;
+        }
+        .guide-item {
+            background: #F8F9FA;
+            border-left: 4px solid #E31837; /* Costco Red */
+            border-radius: 12px;
+            padding: 14px 16px 14px 50px;
+            margin-bottom: 12px;
+            position: relative;
+            min-height: 52px;
+        }
+        .guide-item .check {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            background: #1E8E3E; /* Green */
+            color: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .guide-item b {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+        .guide-item small {
+            color: #5F6368;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* DROPDOWN FAQ */
+        .faq {
+            margin-top: 24px;
+        }
+        .faq-item {
+            border-bottom: 1px solid #E8EAED;
+        }
+        .faq-q {
+            padding: 14px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .faq-q span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .faq-q .x {
+            background: #E31837; /* Costco Red */
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+        .faq-q.active .x {
+            transform: rotate(45deg);
+        }
+        .faq-a {
+            font-size: 13px;
+            color: #5F6368;
+            line-height: 1.5;
+            padding-bottom: 14px;
+            display: none;
+        }
+        .faq-a.open {
+            display: block;
+        }
+
+        /* CALCULATOR */
+        .calculator {
+            background: #F8F9FA;
+            border-radius: 12px;
+            padding: 18px 16px;
+            margin-top: 20px;
+            margin-bottom: 0;
+            text-align: center;
+            border: 1px solid #E8EAED;
+        }
+        .calculator h3 {
+            font-size: 15.5px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+        .calc-input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #005DAA; /* Costco Blue */
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        .calc-input::placeholder {
+            color: #9AA0A6;
+        }
+        .calc-btn {
+            width: 100%;
+            background: #E31837; /* Costco Red */
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .calc-btn:hover {
+            background: #C41230; /* Darker Costco Red */
+        }
+        .calc-result {
+            font-size: 16px;
+            font-weight: 700;
+            color: #202124;
+            margin-top: 15px;
+            display: none;
+        }
+        .calc-result.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="logo"><span class="costco">Costco</span><span class="bang">!</span></div>
+        <h2>Costco <span class="amount-highlight">$750</span> Reward</h2>
+        <p class="subtitle">Here's everything you need to know to get your reward</p>
+
+        <div class="voucher">
+            <div class="amount">$750</div>
+            <div class="label">Maximum voucher value</div>
+        </div>
+
+        <h3>Quick Start Guide</h3>
+        <div class="guide">
+            <div class="guide-item">
+                <div class="check">✓</div>
+                <div>
+                    <b>Complete 4 or more offers</b>
+                    <small>More deals, more rewards</small>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="check">✓</div>
+                <div>
+                    <b>Enter a valid email</b>
+                    <small>For confirmation and updates</small>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="check">✓</div>
+                <div>
+                    <b>Must be 18 years or older</b>
+                    <small>Required to participate</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq">
+            <h3>Common Questions</h3>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFAQ(this)">
+                    <span>How long do the deals take?</span>
+                    <div class="x">+</div>
+                </div>
+                <div class="faq-a">
+                    Most deals can be completed in just a few minutes. Larger offers may take longer depending on the steps involved.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFAQ(this)">
+                    <span>What kind of deals are included?</span>
+                    <div class="x">+</div>
+                </div>
+                <div class="faq-a">
+                    Deals include free trials, app downloads, surveys, and signups from our partner network.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NEW CTA BUTTON -->
+        <a href="https://giftclick.org/aff_c?offer_id=4452&aff_id=170050" class="cta-btn">
+            Continue <span class="arrow">&#8250;</span>
+        </a>
+
+        <!-- CALCULATOR -->
+        <div class="calculator">
+            <h3>Deals to complete (4-40):</h3>
+            <input type="number" id="dealsInput" class="calc-input" placeholder="You must complete 4+ deals to claim it" min="1" max="40">
+            <button class="calc-btn" onclick="calculateReward()">Calculate Reward</button>
+            <div id="calcResult" class="calc-result">Estimated Reward: $75</div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            element.classList.toggle('active');
+            answer.classList.toggle('open');
+        }
+
+        // Calculate Reward Logic (4 deals = $75, 40 deals = $750)
+        function calculateReward() {
+            const input = document.getElementById('dealsInput');
+            const resultDiv = document.getElementById('calcResult');
+            const deals = parseInt(input.value, 10);
+
+            if (isNaN(deals) || deals < 1) {
+                resultDiv.textContent = "Please enter a valid number of deals.";
+                resultDiv.classList.add('show');
+                return;
+            }
+
+            if (deals < 4) {
+                resultDiv.textContent = "You must complete 4+ deals to claim it.";
+                resultDiv.classList.add('show');
+                return;
+            }
+
+            if (deals >= 40) {
+                resultDiv.textContent = "Estimated Reward: $750";
+                resultDiv.classList.add('show');
+                return;
+            }
+
+            const baseReward = 75; 
+            const maxReward = 750;
+            const maxDeals = 40;
+            const minDeals = 4;
+            
+            const reward = baseReward + (deals - minDeals) * ((maxReward - baseReward) / (maxDeals - minDeals));
+            const finalReward = Math.round(reward);
+            
+            resultDiv.textContent = `Estimated Reward: $${finalReward}`;
+            resultDiv.classList.add('show');
+        }
+    </script>
+
+</body>
+</html>
