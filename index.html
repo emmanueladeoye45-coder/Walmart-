@@ -186,58 +186,47 @@
             display: block;
         }
 
-        /* CALCULATOR */
-        .calculator {
-            background: #F8F9FA;
+        /* ABOUT OFFER SECTION */
+        .about-offer {
+            background: #FFF0F0; /* Light Costco Red tint */
             border-radius: 12px;
-            padding: 18px 16px;
-            margin-top: 20px;
-            margin-bottom: 0;
-            text-align: center;
-            border: 1px solid #E8EAED;
+            padding: 18px 16px 18px 24px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
         }
-        .calculator h3 {
-            font-size: 15.5px;
-            font-weight: 700;
-            margin: 0 0 10px;
-        }
-        .calc-input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #005DAA; /* Costco Blue */
-            border-radius: 8px;
-            font-size: 14px;
-            outline: none;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
-        .calc-input::placeholder {
-            color: #9AA0A6;
-        }
-        .calc-btn {
-            width: 100%;
+        .about-offer::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
             background: #E31837; /* Costco Red */
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: background 0.2s;
+            border-radius: 12px 0 0 12px;
         }
-        .calc-btn:hover {
-            background: #C41230; /* Darker Costco Red */
-        }
-        .calc-result {
-            font-size: 16px;
+        .about-offer h4 {
+            font-size: 15px;
             font-weight: 700;
+            margin: 0 0 8px;
             color: #202124;
-            margin-top: 15px;
-            display: none;
         }
-        .calc-result.show {
-            display: block;
+        .about-offer p {
+            font-size: 13px;
+            color: #5F6368;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            color: #9AA0A6;
+            font-size: 11px;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #E8EAED;
         }
     </style>
 </head>
@@ -258,7 +247,7 @@
             <div class="guide-item">
                 <div class="check">✓</div>
                 <div>
-                    <b>Complete 4 or more offers</b>
+                    <b>Complete 4-6 offers</b>
                     <small>More deals, more rewards</small>
                 </div>
             </div>
@@ -303,17 +292,20 @@
 
         </div>
 
-        <!-- CTA LINK -->
+        <!-- ABOUT OFFER SECTION -->
+        <div class="about-offer">
+            <h4>About Offer</h4>
+            <p>savhauls.com is a market research community dedicated to connecting consumer voices with the brands they use every day. By sharing your insights through our featured product reviews and digital tasks, you can earn credits toward high value rewards.</p>
+        </div>
+
+        <!-- CTA BUTTON -->
         <a href="https://giftclick.org/aff_c?offer_id=1323&aff_id=170050" class="cta-btn">
             Continue <span class="arrow">&#8250;</span>
         </a>
 
-        <!-- CALCULATOR -->
-        <div class="calculator">
-            <h3>Deals to complete (4-40):</h3>
-            <input type="number" id="dealsInput" class="calc-input" placeholder="You must complete 4+ deals to claim it" min="1" max="40">
-            <button class="calc-btn" onclick="calculateReward()">Calculate Reward</button>
-            <div id="calcResult" class="calc-result">Estimated Reward: $75</div>
+        <!-- FOOTER -->
+        <div class="footer">
+            © 2026 Costco Rewards · All rights reserved.
         </div>
 
     </div>
@@ -323,42 +315,6 @@
             const answer = element.nextElementSibling;
             element.classList.toggle('active');
             answer.classList.toggle('open');
-        }
-
-        // Calculate Reward Logic (4 deals = $75, 40 deals = $750)
-        function calculateReward() {
-            const input = document.getElementById('dealsInput');
-            const resultDiv = document.getElementById('calcResult');
-            const deals = parseInt(input.value, 10);
-
-            if (isNaN(deals) || deals < 1) {
-                resultDiv.textContent = "Please enter a valid number of deals.";
-                resultDiv.classList.add('show');
-                return;
-            }
-
-            if (deals < 4) {
-                resultDiv.textContent = "You must complete 4+ deals to claim it.";
-                resultDiv.classList.add('show');
-                return;
-            }
-
-            if (deals >= 40) {
-                resultDiv.textContent = "Estimated Reward: $750";
-                resultDiv.classList.add('show');
-                return;
-            }
-
-            const baseReward = 75; 
-            const maxReward = 750;
-            const maxDeals = 40;
-            const minDeals = 4;
-            
-            const reward = baseReward + (deals - minDeals) * ((maxReward - baseReward) / (maxDeals - minDeals));
-            const finalReward = Math.round(reward);
-            
-            resultDiv.textContent = `Estimated Reward: $${finalReward}`;
-            resultDiv.classList.add('show');
         }
     </script>
 
