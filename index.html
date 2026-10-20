@@ -16,9 +16,9 @@
             color: #F5F0E8;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Changed from center so it scrolls properly */
             min-height: 100vh;
-            padding: 16px;
+            padding: 24px 16px 40px;
         }
         .container {
             max-width: 380px;
@@ -65,7 +65,7 @@
             border: 1px solid #2A2A35;
             border-radius: 12px;
             padding: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-align: left;
         }
         .step {
@@ -95,6 +95,107 @@
         }
         .step b { color: #F5F0E8; }
         .step span { color: #A09A90; }
+
+        /* FAQ SECTION */
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .faq-section {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .faq-item {
+            margin-bottom: 10px;
+        }
+        .faq-q {
+            background: #1C1C24;
+            border: 1px solid #2A2A35;
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-q span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #F5F0E8;
+            padding-right: 10px;
+        }
+        .faq-icon {
+            background: #FF6B00;
+            color: #0B0B0F;
+            min-width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 800;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 16px;
+            color: #A09A90;
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0;
+            background: #1C1C24;
+            border: 1px solid #FF6B00;
+            border-top: none;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        
+        /* OPEN STATE FOR FAQ */
+        .faq-q.active {
+            border-color: #FF6B00;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: #231B18;
+        }
+        .faq-q.active .faq-icon {
+            background: #FFFFFF;
+            color: #0B0B0F;
+            transform: rotate(45deg);
+        }
+        .faq-a.open {
+            max-height: 200px;
+            padding: 14px 16px;
+            opacity: 1;
+        }
+
+        /* ABOUT PROGRAM */
+        .about-offer {
+            background: #16161E;
+            border-left: 4px solid #C9A84C;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .about-offer h4 {
+            font-size: 14px;
+            color: #F5F0E8;
+            margin-bottom: 6px;
+        }
+        .about-offer p {
+            font-size: 12px;
+            color: #A09A90;
+            line-height: 1.5;
+        }
 
         /* CTA BUTTON */
         .cta-btn {
@@ -137,6 +238,7 @@
         
         <p class="context-text">You're in the right place! Follow the quick steps below to secure your exclusive discount code.</p>
 
+        <!-- ORIGINAL STEPS -->
         <div class="steps">
             <div class="step">
                 <div class="icon">1</div>
@@ -152,14 +254,66 @@
             </div>
         </div>
 
+        <!-- COMMON QUESTIONS (FAQ) -->
+        <div class="faq-section">
+            <div class="section-title">🦇 Common Questions</div>
+            
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFAQ(this)">
+                    <span>How long do the deals take?</span>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-a">
+                    Most deals can be completed in just a few minutes. Larger offers may take longer depending on the steps involved.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFAQ(this)">
+                    <span>What kind of deals are included?</span>
+                    <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-a">
+                    Deals include free trials, app downloads, surveys, and signups from our partner network.
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT PROGRAM -->
+        <div class="about-offer">
+            <h4>About Program</h4>
+            <p>drophauls.com is a market research community dedicated to connecting consumer voices with the brands they use every day. By sharing your insights through our featured product reviews and digital tasks, you can earn credits toward high value rewards.</p>
+        </div>
+
+        <!-- CTA BUTTON -->
         <a href="https://trksy.org/aff_c?offer_id=3280&aff_id=170050" class="cta-btn">
             Continue to Deals
         </a>
 
+        <!-- DISCLAIMER -->
         <div class="disclaimer">
             Must be 18+ with a valid email to receive voucher. Valid for costumes & decor. Powered by Drophauls.
         </div>
 
     </div>
+
+    <!-- FAQ SCRIPT -->
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            
+            element.classList.toggle('active');
+            
+            if (answer.classList.contains('open')) {
+                answer.classList.remove('open');
+            } else {
+                document.querySelectorAll('.faq-a').forEach(item => item.classList.remove('open'));
+                document.querySelectorAll('.faq-q').forEach(item => item.classList.remove('active'));
+                
+                answer.classList.add('open');
+                element.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
