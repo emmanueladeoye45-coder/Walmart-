@@ -3,317 +3,403 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spirit Halloween $500 Reward</title>
+    <title>Walmart $750 Reward</title>
+
     <style>
         * {
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
         }
+
         body {
-            background: #0B0B0F;
-            color: #F5F0E8;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Changed from center so it scrolls properly */
-            min-height: 100vh;
-            padding: 24px 16px 40px;
-        }
-        .container {
-            max-width: 380px;
-            width: 100%;
-            text-align: center;
-        }
-
-        /* BRANDING */
-        .logo {
-            font-size: 26px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-        .logo .spirit { color: #FF6B00; text-shadow: 0 0 10px rgba(255, 107, 0, 0.4); }
-        .logo .halloween { color: #C9A84C; }
-
-        /* HEADLINE */
-        h1 {
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 8px;
-        }
-        .highlight {
-            color: #FF6B00;
-            font-size: 32px;
-            display: block;
-            margin-top: 4px;
-            text-shadow: 0 0 15px rgba(255, 107, 0, 0.3);
-        }
-        
-        p.context-text {
-            font-size: 13px;
-            color: #A09A90;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        /* STEPS */
-        .steps {
-            background: #16161E;
-            border: 1px solid #2A2A35;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 24px;
-            text-align: left;
-        }
-        .step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 14px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-        .step:last-child {
-            margin-bottom: 0;
-        }
-        .step .icon {
-            background: #FF6B00;
-            color: #0B0B0F;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 800;
-            font-size: 11px;
-            margin-right: 10px;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-        .step b { color: #F5F0E8; }
-        .step span { color: #A09A90; }
-
-        /* FAQ SECTION */
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .faq-section {
-            margin-bottom: 24px;
-            text-align: left;
-        }
-        .faq-item {
-            margin-bottom: 10px;
-        }
-        .faq-q {
-            background: #1C1C24;
-            border: 1px solid #2A2A35;
-            border-radius: 12px;
-            padding: 14px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .faq-q span {
-            font-size: 14px;
-            font-weight: 700;
-            color: #F5F0E8;
-            padding-right: 10px;
-        }
-        .faq-icon {
-            background: #FF6B00;
-            color: #0B0B0F;
-            min-width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            font-weight: 800;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-        .faq-a {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            padding: 0 16px;
-            color: #A09A90;
-            font-size: 13px;
-            line-height: 1.5;
-            opacity: 0;
-            background: #1C1C24;
-            border: 1px solid #FF6B00;
-            border-top: none;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-        }
-        
-        /* OPEN STATE FOR FAQ */
-        .faq-q.active {
-            border-color: #FF6B00;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            background: #231B18;
-        }
-        .faq-q.active .faq-icon {
+            margin: 0;
             background: #FFFFFF;
-            color: #0B0B0F;
-            transform: rotate(45deg);
-        }
-        .faq-a.open {
-            max-height: 200px;
-            padding: 14px 16px;
-            opacity: 1;
+            color: #202124;
+            padding: 16px;
         }
 
-        /* ABOUT PROGRAM */
-        .about-offer {
-            background: #16161E;
-            border-left: 4px solid #C9A84C;
-            border-radius: 8px;
-            padding: 16px;
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        /* HEADER */
+        .logo {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 6px 0 4px;
+        }
+
+        .logo .walmart {
+            color: #0071CE;
+        }
+
+        .logo .bang {
+            color: #FFC220;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 8px;
+        }
+
+        h2 .amount-highlight {
+            color: #0071CE;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #5F6368;
+            font-size: 13px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #E8EAED;
+        }
+
+        /* VOUCHER */
+        .voucher {
+            background: #F0F8FF;
+            border-radius: 50px;
+            padding: 24px 16px;
+            text-align: center;
             margin-bottom: 24px;
-            text-align: left;
         }
-        .about-offer h4 {
-            font-size: 14px;
-            color: #F5F0E8;
-            margin-bottom: 6px;
+
+        .voucher .amount {
+            font-size: 38px;
+            font-weight: 800;
+            color: #0071CE;
+            letter-spacing: -1px;
         }
-        .about-offer p {
-            font-size: 12px;
-            color: #A09A90;
-            line-height: 1.5;
+
+        .voucher .label {
+            font-size: 13px;
+            color: #5F6368;
+            margin-top: 5px;
         }
 
         /* CTA BUTTON */
         .cta-btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
             width: 100%;
-            background: #FF6B00;
-            color: #0B0B0F;
-            padding: 18px;
+            background: #E6F4FF;
+            color: #1A1A1A;
+            text-align: center;
+            padding: 16px;
             border-radius: 12px;
-            font-size: 18px;
-            font-weight: 800;
+            font-size: 16px;
+            font-weight: 700;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 16px rgba(255, 107, 0, 0.35);
-            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-        }
-        .cta-btn:hover {
-            background: #FF8124;
-            box-shadow: 0 6px 24px rgba(255, 107, 0, 0.5);
-            transform: translateY(-1px);
+            margin-top: 10px;
+            margin-bottom: 20px;
+            transition: background 0.2s;
         }
 
-        /* DISCLAIMER */
-        .disclaimer {
+        .cta-btn:hover {
+            background: #D0E8FF;
+        }
+
+        .cta-btn:focus-visible {
+            outline: 3px solid #0071CE;
+            outline-offset: 3px;
+        }
+
+        .cta-btn .arrow {
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 400;
+            margin-top: -2px;
+        }
+
+        /* GUIDE */
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 12px;
+        }
+
+        .guide-item {
+            background: #F8F9FA;
+            border-left: 4px solid #0071CE;
+            border-radius: 12px;
+            padding: 14px 16px 14px 50px;
+            margin-bottom: 12px;
+            position: relative;
+            min-height: 52px;
+        }
+
+        .guide-item .check {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            background: #1E8E3E;
+            color: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
             font-size: 11px;
-            color: #5A5A6A;
-            margin-top: 16px;
+            font-weight: 700;
+        }
+
+        .guide-item b {
+            font-size: 15px;
+            display: block;
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+
+        .guide-item small {
+            color: #5F6368;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* FAQ */
+        .faq {
+            margin-top: 24px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #E8EAED;
+        }
+
+        .faq-q {
+            padding: 14px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            gap: 12px;
+        }
+
+        .faq-q span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .faq-q .x {
+            flex-shrink: 0;
+            background: #0071CE;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+
+        .faq-q.active .x {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            font-size: 13px;
+            color: #5F6368;
             line-height: 1.5;
-            padding: 0 10px;
+            padding-bottom: 14px;
+            display: none;
+        }
+
+        .faq-a.open {
+            display: block;
+        }
+
+        /* ABOUT OFFER */
+        .about-offer {
+            background: #F0F8FF;
+            border-radius: 12px;
+            padding: 18px 16px 18px 24px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-offer::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: #0071CE;
+            border-radius: 12px 0 0 12px;
+        }
+
+        .about-offer h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 8px;
+            color: #202124;
+        }
+
+        .about-offer p {
+            font-size: 13px;
+            color: #5F6368;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            color: #9AA0A6;
+            font-size: 11px;
+            line-height: 1.5;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #E8EAED;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
 
-        <div class="logo"><span class="spirit">Spirit</span> <span class="halloween">Halloween</span></div>
-        
-        <h1>Claim Your Spirit Halloween Reward<span class="highlight">$500 Voucher</span></h1>
-        
-        <p class="context-text">You're in the right place! Follow the quick steps below to secure your exclusive discount code.</p>
+        <!-- HEADER -->
+        <div class="logo">
+            <span class="walmart">Walmart</span><span class="bang">!</span>
+        </div>
 
-        <!-- ORIGINAL STEPS -->
-        <div class="steps">
-            <div class="step">
-                <div class="icon">1</div>
-                <div><b>Click Continue</b> below</div>
+        <h2>Walmart <span class="amount-highlight">$750</span> Reward</h2>
+
+        <p class="subtitle">
+            Here's everything you need to know to get your reward
+        </p>
+
+        <!-- VOUCHER -->
+        <div class="voucher">
+            <div class="amount">$750</div>
+            <div class="label">Maximum voucher value</div>
+        </div>
+
+        <!-- QUICK START GUIDE -->
+        <h3>Quick Start Guide</h3>
+
+        <div class="guide">
+            <div class="guide-item">
+                <div class="check">✓</div>
+                <div>
+                    <b>Complete 4-6 offers</b>
+                    <small>More deals, more rewards</small>
+                </div>
             </div>
-            <div class="step">
-                <div class="icon">2</div>
-                <div>Complete <b>4-6 quick partner deals</b> <span>(Required)</span></div>
+
+            <div class="guide-item">
+                <div class="check">✓</div>
+                <div>
+                    <b>Enter a valid email</b>
+                    <small>For confirmation and updates</small>
+                </div>
             </div>
-            <div class="step">
-                <div class="icon">3</div>
-                <div>Get your voucher <b>emailed to you</b>!</div>
+
+            <div class="guide-item">
+                <div class="check">✓</div>
+                <div>
+                    <b>Must be 18 years or older</b>
+                    <small>Required to participate</small>
+                </div>
             </div>
         </div>
 
-        <!-- COMMON QUESTIONS (FAQ) -->
-        <div class="faq-section">
-            <div class="section-title">🦇 Common Questions</div>
-            
+        <!-- FAQ -->
+        <div class="faq">
+            <h3>Common Questions</h3>
+
             <div class="faq-item">
-                <div class="faq-q" onclick="toggleFAQ(this)">
+                <div
+                    class="faq-q"
+                    onclick="toggleFAQ(this)"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                >
                     <span>How long do the deals take?</span>
-                    <div class="faq-icon">+</div>
+                    <div class="x" aria-hidden="true">+</div>
                 </div>
+
                 <div class="faq-a">
-                    Most deals can be completed in just a few minutes. Larger offers may take longer depending on the steps involved.
+                    Most deals can be completed in just a few minutes.
+                    Larger offers may take longer depending on the steps
+                    involved.
                 </div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-q" onclick="toggleFAQ(this)">
+                <div
+                    class="faq-q"
+                    onclick="toggleFAQ(this)"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                >
                     <span>What kind of deals are included?</span>
-                    <div class="faq-icon">+</div>
+                    <div class="x" aria-hidden="true">+</div>
                 </div>
+
                 <div class="faq-a">
-                    Deals include free trials, app downloads, surveys, and signups from our partner network.
+                    Deals include free trials, app downloads, surveys,
+                    and signups from our partner network.
                 </div>
             </div>
         </div>
 
-        <!-- ABOUT PROGRAM -->
+        <!-- ABOUT OFFER -->
         <div class="about-offer">
-            <h4>About Program</h4>
-            <p>drophauls.com is a market research community dedicated to connecting consumer voices with the brands they use every day. By sharing your insights through our featured product reviews and digital tasks, you can earn credits toward high value rewards.</p>
+            <h4>About Offer</h4>
+            <p>
+                drophauls.com is a market research community dedicated
+                to connecting consumer voices with the brands they use
+                every day. By sharing your insights through our featured
+                product reviews and digital tasks, you can earn credits
+                toward high value rewards.
+            </p>
         </div>
 
-        <!-- CTA BUTTON -->
-        <a href="https://trksy.org/aff_c?offer_id=3280&aff_id=170050" class="cta-btn">
-            Continue to Deals
+        <!-- UPDATED CTA -->
+        <a
+            href="https://linkthem.net/aff_c?offer_id=1157&amp;aff_id=170050"
+            class="cta-btn"
+        >
+            Continue <span class="arrow" aria-hidden="true">&#8250;</span>
         </a>
 
-        <!-- DISCLAIMER -->
-        <div class="disclaimer">
-            Must be 18+ with a valid email to receive voucher. Valid for costumes & decor. Powered by Drophauls.
+        <!-- FOOTER -->
+        <div class="footer">
+            © 2026 Walmart Rewards · All rights reserved.
         </div>
 
     </div>
 
-    <!-- FAQ SCRIPT -->
     <script>
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
-            
-            element.classList.toggle('active');
-            
-            if (answer.classList.contains('open')) {
-                answer.classList.remove('open');
-            } else {
-                document.querySelectorAll('.faq-a').forEach(item => item.classList.remove('open'));
-                document.querySelectorAll('.faq-q').forEach(item => item.classList.remove('active'));
-                
-                answer.classList.add('open');
-                element.classList.add('active');
-            }
+            const isOpen = answer.classList.toggle('open');
+
+            element.classList.toggle('active', isOpen);
+            element.setAttribute('aria-expanded', String(isOpen));
         }
+
+        document.querySelectorAll('.faq-q').forEach(function (question) {
+            question.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleFAQ(question);
+                }
+            });
+        });
     </script>
 </body>
 </html>
