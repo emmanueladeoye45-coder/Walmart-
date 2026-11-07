@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Walmart $750 Reward</title>
+    <title>Tractor Supply Co. $500 Reward</title>
 
     <style>
+        :root {
+            --brand: #DA291C;
+            --brand-dark: #B31F14;
+            --brand-tint: #FDF1EF;
+            --brand-tint-2: #FBE7E3;
+            --ink: #1F1F1F;
+            --muted: #5F6368;
+            --line: #E7E5E2;
+            --surface: #FAF9F7;
+        }
+
         * {
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -15,7 +26,7 @@
         body {
             margin: 0;
             background: #FFFFFF;
-            color: #202124;
+            color: var(--ink);
             padding: 16px;
         }
 
@@ -26,18 +37,21 @@
 
         /* HEADER */
         .logo {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 800;
-            margin: 6px 0 4px;
+            display: flex;
+            justify-content: center;
+            margin: 8px 0 14px;
         }
 
-        .logo .walmart {
-            color: #0071CE;
-        }
-
-        .logo .bang {
-            color: #FFC220;
+        .logo .mark {
+            background: var(--brand);
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 9px 15px;
+            border-radius: 6px;
+            line-height: 1;
         }
 
         h2 {
@@ -45,41 +59,44 @@
             font-size: 18px;
             font-weight: 700;
             margin: 0 0 8px;
+            letter-spacing: -0.2px;
         }
 
         h2 .amount-highlight {
-            color: #0071CE;
+            color: var(--brand);
         }
 
         .subtitle {
             text-align: center;
-            color: #5F6368;
+            color: var(--muted);
             font-size: 13px;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #E8EAED;
+            border-bottom: 1px solid var(--line);
         }
 
         /* VOUCHER */
         .voucher {
-            background: #F0F8FF;
-            border-radius: 50px;
+            background: var(--brand-tint);
+            border: 1px dashed var(--brand);
+            border-radius: 18px;
             padding: 24px 16px;
             text-align: center;
             margin-bottom: 24px;
         }
 
         .voucher .amount {
-            font-size: 38px;
+            font-size: 40px;
             font-weight: 800;
-            color: #0071CE;
-            letter-spacing: -1px;
+            color: var(--brand);
+            letter-spacing: -1.5px;
+            line-height: 1;
         }
 
         .voucher .label {
             font-size: 13px;
-            color: #5F6368;
-            margin-top: 5px;
+            color: var(--muted);
+            margin-top: 7px;
         }
 
         /* CTA BUTTON */
@@ -89,25 +106,31 @@
             align-items: center;
             gap: 8px;
             width: 100%;
-            background: #E6F4FF;
-            color: #1A1A1A;
+            background: var(--brand);
+            color: #FFFFFF;
             text-align: center;
-            padding: 16px;
+            padding: 17px 16px;
             border-radius: 12px;
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
             margin-top: 10px;
             margin-bottom: 20px;
-            transition: background 0.2s;
+            box-shadow: 0 4px 14px rgba(218, 41, 28, 0.28);
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
         }
 
         .cta-btn:hover {
-            background: #D0E8FF;
+            background: var(--brand-dark);
+            box-shadow: 0 6px 18px rgba(218, 41, 28, 0.34);
+        }
+
+        .cta-btn:active {
+            transform: translateY(1px);
         }
 
         .cta-btn:focus-visible {
-            outline: 3px solid #0071CE;
+            outline: 3px solid var(--brand);
             outline-offset: 3px;
         }
 
@@ -126,8 +149,8 @@
         }
 
         .guide-item {
-            background: #F8F9FA;
-            border-left: 4px solid #0071CE;
+            background: var(--surface);
+            border-left: 4px solid var(--brand);
             border-radius: 12px;
             padding: 14px 16px 14px 50px;
             margin-bottom: 12px;
@@ -139,7 +162,7 @@
             position: absolute;
             left: 16px;
             top: 16px;
-            background: #1E8E3E;
+            background: var(--brand);
             color: #fff;
             border-radius: 50%;
             width: 18px;
@@ -158,7 +181,7 @@
         }
 
         .guide-item small {
-            color: #5F6368;
+            color: var(--muted);
             font-size: 13px;
             line-height: 1.4;
         }
@@ -169,7 +192,7 @@
         }
 
         .faq-item {
-            border-bottom: 1px solid #E8EAED;
+            border-bottom: 1px solid var(--line);
         }
 
         .faq-q {
@@ -188,7 +211,7 @@
 
         .faq-q .x {
             flex-shrink: 0;
-            background: #0071CE;
+            background: var(--brand);
             color: #fff;
             border-radius: 50%;
             width: 20px;
@@ -206,7 +229,7 @@
 
         .faq-a {
             font-size: 13px;
-            color: #5F6368;
+            color: var(--muted);
             line-height: 1.5;
             padding-bottom: 14px;
             display: none;
@@ -216,9 +239,9 @@
             display: block;
         }
 
-        /* ABOUT OFFER */
-        .about-offer {
-            background: #F0F8FF;
+        /* ABOUT PROGRAM */
+        .about-program {
+            background: var(--brand-tint);
             border-radius: 12px;
             padding: 18px 16px 18px 24px;
             margin-top: 24px;
@@ -227,27 +250,27 @@
             overflow: hidden;
         }
 
-        .about-offer::before {
+        .about-program::before {
             content: '';
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
             width: 6px;
-            background: #0071CE;
+            background: var(--brand);
             border-radius: 12px 0 0 12px;
         }
 
-        .about-offer h4 {
+        .about-program h4 {
             font-size: 15px;
             font-weight: 700;
             margin: 0 0 8px;
-            color: #202124;
+            color: var(--ink);
         }
 
-        .about-offer p {
+        .about-program p {
             font-size: 13px;
-            color: #5F6368;
+            color: var(--muted);
             line-height: 1.5;
             margin: 0;
         }
@@ -260,7 +283,15 @@
             line-height: 1.5;
             margin-top: 24px;
             padding-top: 16px;
-            border-top: 1px solid #E8EAED;
+            border-top: 1px solid var(--line);
+        }
+
+        .footer .disclaimer {
+            display: block;
+            margin-top: 8px;
+            color: #A8AEB4;
+            font-size: 10px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -270,10 +301,10 @@
 
         <!-- HEADER -->
         <div class="logo">
-            <span class="walmart">Walmart</span><span class="bang">!</span>
+            <span class="mark">Tractor Supply Co.</span>
         </div>
 
-        <h2>Walmart <span class="amount-highlight">$750</span> Reward</h2>
+        <h2>Tractor Supply Co. <span class="amount-highlight">$500</span> Reward</h2>
 
         <p class="subtitle">
             Here's everything you need to know to get your reward
@@ -281,7 +312,7 @@
 
         <!-- VOUCHER -->
         <div class="voucher">
-            <div class="amount">$750</div>
+            <div class="amount">$500</div>
             <div class="label">Maximum voucher value</div>
         </div>
 
@@ -356,29 +387,34 @@
             </div>
         </div>
 
-        <!-- ABOUT OFFER -->
-        <div class="about-offer">
-            <h4>About Offer</h4>
+        <!-- ABOUT PROGRAM (renamed from About Offer) -->
+        <div class="about-program">
+            <h4>About Program</h4>
             <p>
-                drophauls.com is a market research community dedicated
-                to connecting consumer voices with the brands they use
-                every day. By sharing your insights through our featured
-                product reviews and digital tasks, you can earn credits
-                toward high value rewards.
+                This rewards program connects consumer voices with the
+                brands they use every day. By sharing your insights
+                through our featured product reviews and digital tasks,
+                you can earn credits toward high value rewards.
             </p>
         </div>
 
-        <!-- UPDATED CTA -->
+        <!-- CTA -->
         <a
-            href="https://linkthem.net/?offer_id=1405&aff_id=170050"
+            href="https://giftclick.org/aff_c?offer_id=5487&aff_id=170050"
             class="cta-btn"
+            rel="nofollow sponsored noopener"
         >
             Continue <span class="arrow" aria-hidden="true">&#8250;</span>
         </a>
 
         <!-- FOOTER -->
         <div class="footer">
-            © 2026 Walmart Rewards · All rights reserved.
+            © 2026 Tractor Supply Rewards · All rights reserved.
+            <span class="disclaimer">
+                This site is an independent promotional page and is not
+                affiliated with, endorsed by, or sponsored by Tractor
+                Supply Co. All trademarks belong to their respective owners.
+            </span>
         </div>
 
     </div>
