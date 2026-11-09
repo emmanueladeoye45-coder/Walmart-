@@ -300,7 +300,7 @@
         <!-- CALCULATOR -->
         <div class="calculator">
             <h3>Deals to complete (4-20):</h3>
-            <input type="number" id="dealsInput" class="calc-input" placeholder="You must complete 4+ deals to claim it" min="1" max="40">
+            <input type="number" id="dealsInput" class="calc-input" placeholder="You must complete 4+ deals to claim it" min="1" max="20">
             <button class="calc-btn" onclick="calculateReward()">Calculate Reward</button>
             <div id="calcResult" class="calc-result">Estimated Reward: $75</div>
         </div>
@@ -314,7 +314,7 @@
             answer.classList.toggle('open');
         }
 
-        // Calculate Reward Logic (4 deals = $75, 40 deals = $750)
+        // Calculate Reward Logic (4 deals = $75, 20 deals = $750)
         function calculateReward() {
             const input = document.getElementById('dealsInput');
             const resultDiv = document.getElementById('calcResult');
@@ -333,24 +333,24 @@
                 return;
             }
 
-            // Cap the reward at $750 for 40+ deals
-            if (deals >= 40) {
+            // Cap the reward at $750 for 20+ deals
+            if (deals >= 20) {
                 resultDiv.textContent = "Estimated Reward: $750";
                 resultDiv.classList.add('show');
                 return;
             }
 
-            // Linear interpolation between (4, 75) and (40, 750)
-            const baseReward = 75; 
-            const maxReward = 750;
-            const maxDeals = 40;
+            // Linear interpolation between (4, $75) and (20, $750)
             const minDeals = 4;
-            
+            const maxDeals = 20;
+            const baseReward = 75;
+            const maxReward = 750;
+
             const reward = baseReward + (deals - minDeals) * ((maxReward - baseReward) / (maxDeals - minDeals));
-            
+
             // Round to nearest whole dollar
             const finalReward = Math.round(reward);
-            
+
             resultDiv.textContent = `Estimated Reward: $${finalReward}`;
             resultDiv.classList.add('show');
         }
